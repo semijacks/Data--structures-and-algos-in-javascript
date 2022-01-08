@@ -75,6 +75,24 @@ class DoublyLinkedList {
     this.length--;
     return this;
   }
+
+  reverse() {
+    if (!this.head.next) {
+      return this;
+    }
+    let first = this.head;
+    this.tail = this.head;
+    let second = first.next;
+    while (second) {
+      const temp = second.next;
+      second.next = first;
+      first = second;
+      second = temp;
+    }
+    this.head.next = null;
+    this.head = first;
+    return this;
+  }
 }
 
 const myLinkedList = new DoublyLinkedList(15);
@@ -82,7 +100,8 @@ myLinkedList.append(27);
 myLinkedList.append(50);
 myLinkedList.prepend(10);
 myLinkedList.insert(2, 45);
-console.log(myLinkedList.insert(1, 88));
+myLinkedList.insert(1, 88);
 // myLinkedList.insert(4, 97);
 // myLinkedList.remove(4);
+console.log(myLinkedList.reverse());
 console.log(myLinkedList.printList());
