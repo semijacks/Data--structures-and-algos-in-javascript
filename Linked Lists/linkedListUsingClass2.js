@@ -15,17 +15,19 @@ class LinkedList {
     };
     this.tail.next = newNode;
     this.tail = newNode;
-    this.length = this.length + 1;
+    this.length++;
     return this;
   }
 
   prepend(value) {
     const newNode = {
       value: value,
-      next: this.head,
+      next: null,
     };
+    newNode.next = this.head;
     this.head = newNode;
-    this.length = this.length + 1;
+    this.length++;
+    return this;
   }
 }
 
