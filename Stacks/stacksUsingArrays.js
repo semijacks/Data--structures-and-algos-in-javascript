@@ -1,35 +1,20 @@
 class Stack {
   constructor() {
     this.arr = [];
-    this.top = null;
-    this.bottom = null;
-    this.length = 0;
   }
 
   peek() {
     console.log(this);
-    return this;
+    return this.arr[this.arr.length - 1];
   }
 
   push(value) {
     this.arr.push(value);
-    this.top = this.arr[this.arr.length - 1];
-    this.bottom = this.arr[0];
-    this.length++;
     return this;
   }
 
   pop() {
-    if (this.arr.length === 1) {
-      this.arr.pop();
-      this.top = null;
-      this.bottom = null;
-      this.length--;
-      return 'Stack is empty';
-    }
     this.arr.pop();
-    this.top = this.arr[this.arr.length - 1];
-    this.length--;
     return this;
   }
 }
